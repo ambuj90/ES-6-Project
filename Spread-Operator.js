@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Spread Operator</title>
-</head>
-<body>
-<script type="text/javascript">
-	
-  const restaurant ={
+const restaurant ={
          location: 'Noida',
          name: 'Ambuj',
          categories: ['Italian', 'vegitarian', 'Organic'],
@@ -46,6 +37,9 @@
               console.log(`Order received ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered 
                ${address} at ${time}`);
           },
+          orderPasta: function(ing1, ing2,ing3){
+          	console.log(`Here is your declicious pasta with ${ing1}, ${ing2} and ${ing3}`);
+          }
        };
 
        restaurant.orderDelivery({
@@ -120,8 +114,39 @@
 
   console.log(...newMenu);
 
+  //copy Array
 
+  const mainMenuCopy =[...restaurant.mainMenu];
+  console.log(mainMenuCopy);
 
-</script>
-</body>
-</html>
+  //add two array
+
+  const menu1 = [...restaurant.starterMenu, ...restaurant.mainMenu];
+  console.log(menu1);
+
+  // Iterables: arrays, string, maps, sets. Not Objects
+
+  const str = "Ambuj sharma";
+  const letters = [...str, '', 'S'];
+  console.log(letters);
+
+// real world example
+const Ingredients = [
+prompt('Let\s make pasta ! Ingredients 1? '), 
+prompt('Ingredients 2? '), 
+prompt('Ingredients 3 ? ') ];
+console.log(Ingredients);
+
+// restaurant.orderPasta(Ingredients[0],Ingredients[1], Ingredients[2]);
+restaurant.orderPasta(...Ingredients);
+
+//Objects
+
+const newRestaurant = {foundedIn: 1998, ...restaurant, founder :'Ambuj Sharma'} ;
+console.log(newRestaurant);
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = 'Roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
+
