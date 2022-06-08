@@ -50,3 +50,12 @@ array1.sort(function(a,b){
 });
 
 console.log(array1);
+
+-----------------------------------------------------------
+
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+let aFruits = fruits.sort();
+console.log(aFruits);
+
