@@ -34,3 +34,17 @@ const person = function () {
  const car =()=>{
 
  }
+ 
+ 
+ // 2️⃣ What is this Object?
+
+// The definition  of "this" object is that it contain the current context. 
+
+// The this object can have different values depending on where it is placed. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
