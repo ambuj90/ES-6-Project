@@ -1,0 +1,30 @@
+//Using a Set
+
+function getUniqueElements(array) {
+    return [...new Set(array)];
+}
+
+// Example usage:
+const numbers = [1, 2, 2, 3, 4, 4, 5];
+const uniqueNumbers = getUniqueElements(numbers);
+console.log(uniqueNumbers); // Output: [1, 2, 3, 4, 5]
+
+
+//Using the filter method with an object to track duplicates
+
+function getUniqueElements(array) {
+    const seen = {};
+    return array.filter(item => {
+        if (seen[item]) {
+            return false;
+        } else {
+            seen[item] = true;
+            return true;
+        }
+    });
+}
+
+// Example usage:
+const numbers = [1, 2, 2, 3, 4, 4, 5];
+const uniqueNumbers = getUniqueElements(numbers);
+console.log(uniqueNumbers); // Output: [1, 2, 3, 4, 5]
