@@ -1,0 +1,32 @@
+function findSecondSmallest(arr) {
+    if (arr.length < 2) {
+        throw new Error('Array must contain at least two elements.');
+    }
+
+    // Initialize the first and second smallest elements to Infinity
+    let smallest = Infinity;
+    let secondSmallest = Infinity;
+
+    // Iterate through the array
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < smallest) {
+            // Update second smallest and smallest
+            secondSmallest = smallest;
+            smallest = arr[i];
+        } else if (arr[i] < secondSmallest && arr[i] !== smallest) {
+            // Update second smallest only if arr[i] is not equal to smallest
+            secondSmallest = arr[i];
+        }
+    }
+
+    // Check if a valid second smallest element was found
+    if (secondSmallest === Infinity) {
+        throw new Error('No second smallest element found.');
+    }
+
+    return secondSmallest;
+}
+
+// Example usage:
+const array = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
+console.log(findSecondSmallest(array)); // Output: 2
