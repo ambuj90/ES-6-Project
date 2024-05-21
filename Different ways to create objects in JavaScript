@@ -1,0 +1,75 @@
+//Object Literal
+const obj = {
+  name: 'John',
+  age: 30,
+  greet: function() {
+    console.log('Hello!');
+  }
+};
+
+// Constructor Function
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+
+const person1 = new Person('John', 30);
+
+// ES6 Class Syntax
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log('Hello!');
+  }
+}
+
+
+//Object.create() Method
+const person1 = new Person('John', 30);
+
+const prototypeObj = {
+  greet() {
+    console.log('Hello!');
+  }
+};
+
+const obj = Object.create(prototypeObj);
+obj.name = 'John';
+obj.age = 30;
+
+//Using the new Operator with Built-in Constructors
+const obj = new Object();
+obj.name = 'John';
+obj.age = 30;
+
+
+//Factory Functions
+//A factory function is a function that returns a new object each time it is called:
+function createPerson(name, age) {
+  return {
+    name: name,
+    age: age,
+    greet() {
+      console.log('Hello!');
+    }
+  };
+}
+
+const person1 = createPerson('John', 30);
+
+//Using Json:-
+const jsonString = '{"name": "John", "age": 30}';
+const obj = JSON.parse(jsonString);
+
+//Using Spread Operator
+const originalObj = { name: 'John', age: 30 };
+const newObj = { ...originalObj, gender: 'male' };
+
+//Object.assign()
+const target = { name: 'John' };
+const source = { age: 30, gender: 'male' };
+const newObj = Object.assign(target, source);
