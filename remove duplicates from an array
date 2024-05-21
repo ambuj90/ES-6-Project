@@ -1,0 +1,42 @@
+//Method 1: Using Set 
+
+const arrayWithDuplicates = [1, 2, 2, 3, 4, 4, 5];
+const uniqueArray = [...new Set(arrayWithDuplicates)];
+
+console.log(uniqueArray); // Output: [1, 2, 3, 4, 5]
+
+
+//Method 2: Using Filter
+const arrayWithDuplicates = [1, 2, 2, 3, 4, 4, 5];
+const uniqueArray = arrayWithDuplicates.filter((value, index, self) => {
+  return self.indexOf(value) === index;
+});
+
+console.log(uniqueArray); // Output: [1, 2, 3, 4, 5]
+
+
+//Method 3: Using Reduce
+const arrayWithDuplicates = [1, 2, 2, 3, 4, 4, 5];
+const uniqueArray = arrayWithDuplicates.reduce((acc, value) => {
+  if (!acc.includes(value)) {
+    acc.push(value);
+  }
+  return acc;
+}, []);
+
+console.log(uniqueArray); // Output: [1, 2, 3, 4, 5]
+
+//Method 4: Using a For Loop
+const arrayWithDuplicates = [1, 2, 2, 3, 4, 4, 5];
+const uniqueArray = [];
+const uniqueSet = new Set();
+
+for (const value of arrayWithDuplicates) {
+  if (!uniqueSet.has(value)) {
+    uniqueSet.add(value);
+    uniqueArray.push(value);
+  }
+}
+
+console.log(uniqueArray); // Output: [1, 2, 3, 4, 5]
+
